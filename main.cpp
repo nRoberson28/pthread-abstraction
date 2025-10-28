@@ -8,6 +8,7 @@ class Counter : public Thread {
 public:
     Counter(int start, int end) : startCount(start), endCount(end), finalNumbers(0) {}
     int getEndCount() const { return endCount; }
+    int getStartCount() const { return startCount; }
     const std::vector<int>& getFinalNumbers() const { return finalNumbers; }
 
 protected:
@@ -22,7 +23,7 @@ protected:
     void done() override {
         pthread_mutex_lock(&mutex);
         std::cout << "Thread " << this->getId() << " complete... "
-                  << "Counted to: " << this->getEndCount() << std::endl;
+                  << "Counted from " << this->getStartCount() << " to " << this->getEndCount << std::endl;
         pthread_mutex_unlock(&mutex);
     }
 
