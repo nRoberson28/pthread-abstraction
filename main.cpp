@@ -23,7 +23,7 @@ protected:
     void done() override {
         pthread_mutex_lock(&mutex);
         std::cout << "Thread " << this->getId() << " complete... "
-                  << "Counted from " << this->getStartCount() << " to " << this->getEndCount << std::endl;
+                  << "Counted from " << this->getStartCount() << " to " << this->getEndCount() << std::endl;
         pthread_mutex_unlock(&mutex);
     }
 
